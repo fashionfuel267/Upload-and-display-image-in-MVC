@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebApplication1.Models.Patient>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Patient</h2>
+@Html.ActionLink("Add", "Create", "Patients")
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="card col-md-4" style="width: 20rem;">
+            @if(@item.ImagePath!=null)
+            {
+            <img class="card-img-top" src="@Url.Content(item.ImagePath)" alt="Card image cap" height="286" width="180">
+            }
+            
+            <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                <p class="card-text">@item.About</p>
+                
+                @Html.ActionLink("Details", "Details", "Patients", new { @id = item.Id }, new {@class="btn btn-primary"})
+            </div>
+        </div>
+    }
+</div>
+
+

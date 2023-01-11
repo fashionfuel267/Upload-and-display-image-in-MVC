@@ -1,0 +1,83 @@
+﻿@model WebApplication1.Models.Patient
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@ViewBag.mesaage
+@using (Html.BeginForm("Create", "Patients", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.Label("lblname", "Name")
+        @Html.TextBoxFor(m => m.Name, "", new { @placeholder = "Enter Name", @class = "form-control" })
+    </div>
+
+    <div>
+        @Html.Label("lblpassword", "Password")
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Enter Password" })
+    </div>
+
+
+    <div>
+        @Html.Label("lblAbout", "About")
+        @Html.TextAreaFor(m => m.About, new { @class = "form-control", @placeholder = "Write yourself" })
+    </div>
+
+    @*<div>
+           @Html.Label("lblhobby", "Your Hobby")
+           <div>
+              <span>Reading</span> @Html.CheckBox("hobyylist", "Reading")
+                 <span>Writing</span> @Html.CheckBox("hobyylist", "Writing")
+                 <span>Singing</span> @Html.CheckBox("hobyylist", "Singing")
+
+           </div>
+        </div>*@
+    <div class="form-group row">
+        @Html.Label("lblgender", "Your Gender", new { @class = "col-md-4" })
+        <div class="row col-md-8    ">
+            <span>Male</span>  @Html.RadioButton("chkgender", "Male")
+            <span>Female</span>  @Html.RadioButton("chkgender", "Female")
+
+        </div>
+    </div>
+    <div>
+        @Html.Label("lblbcountry", "Country")
+        @{
+            var list = new List<SelectListItem>();
+            list.Add(new SelectListItem
+            {
+                Text = "Bangladesh",
+                Value = "Bangladesh"
+            });
+            list.Add(new SelectListItem { Text = "America", Value = "America" });
+            list.Add(new SelectListItem { Text = "Canada", Value = "Canada" });
+        }
+        @Html.DropDownListFor(m => m.country, list, "Select Country", new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.Label("lblbactive", "Active")
+        @Html.EditorFor(m => m.isActive, new { @class = "form-control", @placeholder = "Enter Birthdate" })
+    </div>
+    <div>
+        @Html.Label("lblbdate", "Birthday")
+        @Html.EditorFor(m => m.Bdate, new { @class = "form-control", @placeholder = "Enter Birthdate" })
+    </div>
+
+    <div>
+        @Html.Label("lblprofile", "Upload Image")
+        <input type="file" name="Image" />
+
+    </div>
+    <div>
+        @Html.Label("lblprofile", "Upload profile")
+        <input type="file" name="profile" />
+
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+}
+
+
+
+

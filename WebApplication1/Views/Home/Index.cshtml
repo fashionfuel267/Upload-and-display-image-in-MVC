@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    @ViewBag.Message
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Getting started Standard HTML Helpers </h2>
+        @using (Html.BeginForm("ReadControl","Home",FormMethod.Post))
+            {
+
+       
+        <div class="form-group row">
+            @Html.Label("lblname", "Name", new { @class = "col-md-4" })
+            @Html.TextBox("txtname", "", new { @placeholder = "Enter Name", @class = "form-control col-md-8" })
+           
+        </div>
+        <div class="form-group row">
+            @Html.Label("lblpassword", "Password", new { @class = "col-md-4" })
+            @Html.Password("txtpass", "", new { @placeholder = "Enter Password", @class = "form-control col-md-8" })
+        </div>
+        <div class="form-group row">
+            @Html.Label("lblsbout", "About Yourself", new { @class = "col-md-4" })
+            @Html.TextArea("txtabout", "", new { @placeholder = "write down about yourself", @class = "form-control col-md-8" })
+        </div>
+        <div class="form-group row">
+            @Html.Label("lblhobby", "Your Hobby", new { @class = "col-md-4" })
+            <div class="row col-md-8    ">
+                <span>Reading</span>  @Html.CheckBox("chkReading", false)
+                <span>Writing</span>  @Html.CheckBox("chkWriting", false)
+                <span>Fishing</span>  @Html.CheckBox("chkFishing", false)
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.Label("lblgender", "Your Gender", new { @class = "col-md-4" })
+            <div class="row col-md-8    ">
+                <span>Male</span>  @Html.RadioButton("chkgender","Male")
+                <span>Female</span>  @Html.RadioButton("chkgender", "Female")
+               
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+        }
+    </div>
+   
+</div>
