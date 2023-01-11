@@ -125,20 +125,20 @@ There is a very simple way to store images in project's folder and save folder p
    [HttpPost]  
         public ActionResult Create(Patient patient)  
         {
-            string folderpath =Path.Combine( Server.MapPath("~/"),"PatientProfile");
-            string fname = Path.GetFileName(patient.profile.FileName);
+            string folderpath =Path.Combine( Server.MapPath("~/"),"PatientProfile");  
+            string fname = Path.GetFileName(patient.profile.FileName);  
             if (!Directory.Exists(folderpath))
             {
                 Directory.CreateDirectory(folderpath);
-            }
+            }  
             if(patient.profile !=null)
             {
                 patient.profile.SaveAs(Path.Combine( folderpath, fname));
-            }
+            }  
 
             patient.profilePath = "~/PatientProfile/" + fname;
 
-            //image upload
+            //image upload  
             if (patient.Image!=null)
             {
                 string imagePath = Path.Combine(Server.MapPath("~/"), "PatientImage");
@@ -172,16 +172,16 @@ There is a very simple way to store images in project's folder and save folder p
             return View();
         }
 
- ##Step 5: Create  Action method for display data with Image in Controller .
-   dbHospital db=new dbHospital();
+ ##Step 5: Create  Action method for display data with Image in Controller .  
+   dbHospital db=new dbHospital();  
         // GET: Patients
-        public ActionResult Index()
+        public ActionResult Index()  
         {
             return View(db.Patients.OrderBy(p=>p.Name).Where(p=>p.isActive).ToList());
         }
         
- ##Step 6: Create  View for display data with Image  .
-      @model IEnumerable<WebApplication1.Models.Patient>
+ ##Step 6: Create  View for display data with Image  .  
+      @model IEnumerable<WebApplication1.Models.Patient>  
 @{
     ViewBag.Title = "Display Patient Records";
 }
