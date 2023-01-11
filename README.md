@@ -1,6 +1,6 @@
-# Upload-and-display-image-in-MVC\
-There is a very simple way to store images in project's folder and save folder path in database from MVC application.\
-##Step 1: First we create a class named Patient in model folder.\
+# Upload-and-display-image-in-MVC  
+There is a very simple way to store images in project's folder and save folder path in database from MVC application.  
+##Step 1: First we create a class named Patient in model folder.  
  public class Patient
    {
         public int Id { get; set; }
