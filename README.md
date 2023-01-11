@@ -121,9 +121,9 @@ There is a very simple way to store images in project's folder and save folder p
     </div>
 }
 
- ##Step 4: Create  Action method for Post/save data in Controller .
-   [HttpPost]
-        public ActionResult Create(Patient patient)
+ ##Step 4: Create  Action method for Post/save data in Controller .  
+   [HttpPost]  
+        public ActionResult Create(Patient patient)  
         {
             string folderpath =Path.Combine( Server.MapPath("~/"),"PatientProfile");
             string fname = Path.GetFileName(patient.profile.FileName);
